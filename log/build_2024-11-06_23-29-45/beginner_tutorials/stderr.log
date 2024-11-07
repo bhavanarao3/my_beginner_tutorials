@@ -1,4 +1,0 @@
-[01m[K/home/bhavana/my_beginner_tutorials/src/beginner_tutorials/src/publisher_member_function.cpp:[m[K In member function ‘[01m[Kvoid MinimalPublisher::TimerCallback()[m[K’:
-[01m[K/home/bhavana/my_beginner_tutorials/src/beginner_tutorials/src/publisher_member_function.cpp:140:12:[m[K [01;35m[Kwarning: [m[Kenumeration value ‘[01m[KUnset[m[K’ not handled in switch [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wswitch-Wswitch]8;;[m[K]
-  140 |     switch [01;35m[K([m[Klog_level_) {
-      |            [01;35m[K^[m[K
