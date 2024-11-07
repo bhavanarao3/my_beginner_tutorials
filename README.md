@@ -139,6 +139,78 @@ The following parameters can be passed at runtime to configure the behavior of t
 - **Fatal Error**: If the `publish_frequency` is less than 100 ms, a fatal error will occur, and the node will be shut down.
 - **Service**: The node provides a service (`toggle_base_output`) to toggle the base output string. You can change it to "Current time" or "Custom time" by calling the service.
 
+### Cloning and Building the Package
+
+To install this package in an existing ROS2 colcon workspace, follow these steps:
+
+1. **Clone the Package**:
+   ```bash
+   cd ~/your_colcon_workspace/src
+   git clone https://github.com/yourusername/beginner_tutorials.git
+
+2. **Install Dependencies**:
+   Make sure dependencies are installed:
+   ```bash
+   sudo apt update
+   sudo apt install ros-humble-example-interfaces ros-humble-std-msgs
+   ```
+
+3. **Build the Workspace**:
+   ```bash
+   cd ~/your_colcon_workspace
+   colcon build --packages-select beginner_tutorials
+   ```
+
+4. **Source the Workspace**:
+   ```bash
+   source ~/your_colcon_workspace/install/setup.bash
+   ```
+
+---
+
+### Running the Node
+
+1. **Launch the Node with Parameters**:
+   You can launch the node and pass parameters to adjust its behavior. For example:
+   ```bash
+   ros2 launch beginner_tutorials minimal_pubsub_launch.py publish_frequency:=500 frequency_threshold:=200 log_level:=1
+   ```
+
+---
+
+### Using the `toggle_base_output` Service
+
+To change the base output string of the publisher using the `toggle_base_output` service:
+
+1. **Call the Service**:
+   ```bash
+   ros2 service call /toggle_base_output example_interfaces/srv/SetBool "{data: true}"
+   ```
+
+   - Setting `data: true` will switch to "Custom time."
+   - Setting `data: false` will revert to "Current time."
+
+---
+
+### Using the Launch File
+
+The launch file (`minimal_pubsub_launch.py`) allows for an organized way to start the node with specified parameters:
+
+1. **Launch with Default Parameters**:
+   ```bash
+   ros2 launch beginner_tutorials minimal_pubsub_launch.py
+   ```
+
+2. **Custom Launch with Parameter Override**:
+   You can specify custom values for parameters directly in the launch command:
+   ```bash
+   ros2 launch beginner_tutorials minimal_pubsub_launch.py publish_frequency:=500 frequency_threshold:=200 log_level:=1
+   ```
+
+This README provides a clear overview of the project, dependencies, and how to build, run, and interact with the node and its features.
+```
+
+Save this content as `README.md` in your project folder. This document provides a structured overview, along with instructions for setup, running, and using the features of your ROS2 package.
 ### Example Usage
 
 1. **Launch the Node with Parameters**
