@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="beginner_tutorials.uncrustify"
+  tests="3"
+  failures="0"
+  errors="0"
+  time="0.007"
+>
+  <testcase
+    name="src/publisher_member_function.cpp"
+    classname="beginner_tutorials.uncrustify"/>
+  <testcase
+    name="src/subscriber_member_function.cpp"
+    classname="beginner_tutorials.uncrustify"/>
+  <testcase
+    name="test/test_talker.cpp"
+    classname="beginner_tutorials.uncrustify"/>
+  <system-out>Checked files:
+* src/publisher_member_function.cpp
+* src/subscriber_member_function.cpp
+* test/test_talker.cpp</system-out>
+</testsuite>

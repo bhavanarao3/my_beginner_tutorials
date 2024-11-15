@@ -1,0 +1,266 @@
+UpdateCTestConfiguration  from :/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini
+Parse Config file:/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini
+   Site: bhavana-virtual-machine
+   Build name: (empty)
+ Add coverage exclude regular expressions.
+Create new tag: 20241115-2146 - Experimental
+UpdateCTestConfiguration  from :/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini
+Parse Config file:/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini
+Test project /home/bhavana/my_beginner_tutorials/build/beginner_tutorials
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: cppcheck
+
+1: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_cppcheck/cppcheck.txt" "--command" "/opt/ros/humble/bin/ament_cppcheck" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml"
+1: Test timeout computed to be: 300
+1: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+1:  - /opt/ros/humble/bin/ament_cppcheck --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml
+1: cppcheck 2.7 has known performance issues and therefore will not be used, set the AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS environment variable to override this.
+1: -- run_test.py: return code 0
+1: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml'
+1/6 Test #1: cppcheck .........................   Passed    0.16 sec
+test 2
+    Start 2: flake8
+
+2: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_flake8/flake8.txt" "--command" "/opt/ros/humble/bin/ament_flake8" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml"
+2: Test timeout computed to be: 60
+2: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+2:  - /opt/ros/humble/bin/ament_flake8 --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml
+2: def generate_launch_description():
+2: ^
+2:     """
+2:     Generates the launch description for the Talker and Listener nodes.
+2: 
+2:     This function defines the launch configuration for two nodes in the ROS2 system:
+2:     - Talker Node: Publishes messages at a specified frequency.
+2:     - Listener Node: Subscribes to the Talker node's messages and logs them at the specified log level.
+2: 
+2:     The log levels for both nodes are configurable via launch arguments, with default values set to 'INFO'.
+2:     
+2:     @return LaunchDescription: The launch description for the ROS2 nodes.
+2:     """
+2:        
+2:                                                                        
+2: 
+2:                   ^
+2:     """
+2:     Generates the launch description for the Talker and Listener nodes.
+2: 
+2:     This function defines the launch configuration for two nodes in the ROS2 system:
+2:     - Talker Node: Publishes messages at a specified frequency.
+2:     - Listener Node: Subscribes to the Talker node's messages and logs them at the specified log level.
+2: 
+2:     The log levels for both nodes are configurable via launch arguments, with default values set to 'INFO'.
+2:     
+2:     @return LaunchDescription: The launch description for the ROS2 nodes.
+2:     """
+2:        
+2:                                                                        
+2: 
+2:                   ^
+2:     """
+2:     Generates the launch description for the Talker and Listener nodes.
+2: 
+2:     This function defines the launch configuration for two nodes in the ROS2 system:
+2:     - Talker Node: Publishes messages at a specified frequency.
+2:     - Listener Node: Subscribes to the Talker node's messages and logs them at the specified log level.
+2: 
+2:     The log levels for both nodes are configurable via launch arguments, with default values set to 'INFO'.
+2:     
+2:     @return LaunchDescription: The launch description for the ROS2 nodes.
+2:     """
+2: ^
+2:                 'publish_frequency': LaunchConfiguration('publish_frequency')  # The frequency at which messages are published
+2:                                                                                                    ^
+2:             arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level_talker')]  # Argument to set the log level for the Talker node
+2:                                                                                                    ^
+2:             arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level_listener')]  # Argument to set the log level for the Listener node
+2:                                                                                                    ^
+2: 1     E302 expected 2 blank lines, found 1
+2: 5     E501 line too long (103 > 99 characters)
+2: 1     W293 blank line contains whitespace
+2: 
+2: ./launch/minimal_pubsub_launch.py:6:1: E302 expected 2 blank lines, found 1
+2: 
+2: ./launch/minimal_pubsub_launch.py:12:100: E501 line too long (103 > 99 characters)
+2: 
+2: ./launch/minimal_pubsub_launch.py:14:100: E501 line too long (107 > 99 characters)
+2: 
+2: ./launch/minimal_pubsub_launch.py:15:1: W293 blank line contains whitespace
+2: 
+2: ./launch/minimal_pubsub_launch.py:43:100: E501 line too long (126 > 99 characters)
+2: 
+2: ./launch/minimal_pubsub_launch.py:45:100: E501 line too long (145 > 99 characters)
+2: 
+2: ./launch/minimal_pubsub_launch.py:53:100: E501 line too long (149 > 99 characters)
+2: 
+2: 
+2: 2 files checked
+2: 7 errors
+2: 
+2: 'E'-type errors: 6
+2: 'W'-type errors: 1
+2: 
+2: Checked files:
+2: 
+2: * ./launch/ros_bag_launch.py
+2: * ./launch/minimal_pubsub_launch.py
+2: -- run_test.py: return code 1
+2: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml'
+2/6 Test #2: flake8 ...........................***Failed    0.23 sec
+test 3
+    Start 3: lint_cmake
+
+3: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_lint_cmake/lint_cmake.txt" "--command" "/opt/ros/humble/bin/ament_lint_cmake" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml"
+3: Test timeout computed to be: 60
+3: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+3:  - /opt/ros/humble/bin/ament_lint_cmake --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml
+3: 
+3: No problems found
+3: -- run_test.py: return code 0
+3: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml'
+3/6 Test #3: lint_cmake .......................   Passed    0.12 sec
+test 4
+    Start 4: pep257
+
+4: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_pep257/pep257.txt" "--command" "/opt/ros/humble/bin/ament_pep257" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml"
+4: Test timeout computed to be: 60
+4: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+4:  - /opt/ros/humble/bin/ament_pep257 --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml
+4: checking ./launch/minimal_pubsub_launch.py
+4: ./launch/minimal_pubsub_launch.py:7 in public function `generate_launch_description`: D401: First line should be in imperative mood (perhaps 'Generate', not 'Generates')
+4: checking ./launch/ros_bag_launch.py
+4: 1 errors
+4: -- run_test.py: return code 1
+4: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml'
+4/6 Test #4: pep257 ...........................***Failed    0.16 sec
+test 5
+    Start 5: uncrustify
+
+5: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_uncrustify/uncrustify.txt" "--command" "/opt/ros/humble/bin/ament_uncrustify" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml"
+5: Test timeout computed to be: 60
+5: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+5:  - /opt/ros/humble/bin/ament_uncrustify --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml
+5: Code style divergence in file 'src/publisher_member_function.cpp':
+5: 
+5: --- src/publisher_member_function.cpp
+5: +++ src/publisher_member_function.cpp.uncrustify
+5: @@ -97 +97 @@
+5: -}
+5: +}
+5: 
+5: Code style divergence in file 'src/subscriber_member_function.cpp':
+5: 
+5: --- src/subscriber_member_function.cpp
+5: +++ src/subscriber_member_function.cpp.uncrustify
+5: @@ -34,2 +34,3 @@
+5: -class MinimalSubscriber : public rclcpp::Node {
+5: - public:
+5: +class MinimalSubscriber : public rclcpp::Node
+5: +{
+5: +public:
+5: @@ -42 +43,3 @@
+5: -  MinimalSubscriber() : Node("minimal_subscriber") {
+5: +  MinimalSubscriber()
+5: +  : Node("minimal_subscriber")
+5: +  {
+5: @@ -45,2 +48,2 @@
+5: -        "custom_topic", 10,
+5: -        std::bind(&MinimalSubscriber::TopicCallback, this, _1));
+5: +      "custom_topic", 10,
+5: +      std::bind(&MinimalSubscriber::TopicCallback, this, _1));
+5: @@ -49 +52 @@
+5: - private:
+5: +private:
+5: @@ -59 +62,2 @@
+5: -  void TopicCallback(const std_msgs::msg::String &msg) const {
+5: +  void TopicCallback(const std_msgs::msg::String & msg) const
+5: +  {
+5: @@ -61,2 +65,3 @@
+5: -    RCLCPP_INFO_STREAM(this->get_logger(),
+5: -                       "Received: '" << received_message << "'");
+5: +    RCLCPP_INFO_STREAM(
+5: +      this->get_logger(),
+5: +      "Received: '" << received_message << "'");
+5: @@ -67,2 +72,2 @@
+5: -          this->get_logger(),
+5: -          "Debug level message detected in: '" << received_message << "'");
+5: +        this->get_logger(),
+5: +        "Debug level message detected in: '" << received_message << "'");
+5: @@ -71,2 +76,2 @@
+5: -          this->get_logger(),
+5: -          "Warning level message detected in: '" << received_message << "'");
+5: +        this->get_logger(),
+5: +        "Warning level message detected in: '" << received_message << "'");
+5: @@ -75,2 +80,2 @@
+5: -          this->get_logger(),
+5: -          "Error level message detected in: '" << received_message << "'");
+5: +        this->get_logger(),
+5: +        "Error level message detected in: '" << received_message << "'");
+5: @@ -79,2 +84,2 @@
+5: -          this->get_logger(),
+5: -          "Fatal level message detected in: '" << received_message << "'");
+5: +        this->get_logger(),
+5: +        "Fatal level message detected in: '" << received_message << "'");
+5: @@ -82,2 +87,3 @@
+5: -      RCLCPP_INFO_STREAM(this->get_logger(), "General message received: '"
+5: -                                                 << received_message << "'");
+5: +      RCLCPP_INFO_STREAM(
+5: +        this->get_logger(), "General message received: '"
+5: +          << received_message << "'");
+5: @@ -88 +94 @@
+5: -      subscription_;  ///< Subscription handle to receive messages.
+5: +    subscription_;    ///< Subscription handle to receive messages.
+5: @@ -101 +107,2 @@
+5: -int main(int argc, char *argv[]) {
+5: +int main(int argc, char * argv[])
+5: +{
+5: 
+5: Code style divergence in file 'test/test_talker.cpp':
+5: 
+5: --- test/test_talker.cpp
+5: +++ test/test_talker.cpp.uncrustify
+5: @@ -82 +82 @@
+5: -}
+5: +}
+5: 
+5: 3 files with code style divergence
+5: -- run_test.py: return code 1
+5: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml'
+5/6 Test #5: uncrustify .......................***Failed    0.15 sec
+test 6
+    Start 6: xmllint
+
+6: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_xmllint/xmllint.txt" "--command" "/opt/ros/humble/bin/ament_xmllint" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml"
+6: Test timeout computed to be: 60
+6: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+6:  - /opt/ros/humble/bin/ament_xmllint --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml
+6: File 'package.xml' is valid
+6: 
+6: No problems found
+6: -- run_test.py: return code 0
+6: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml'
+6/6 Test #6: xmllint ..........................   Passed    0.56 sec
+
+50% tests passed[0;0m, [0;31m3 tests failed[0;0m out of 6
+
+Label Time Summary:
+cppcheck      =   0.16 sec*proc (1 test)
+flake8        =   0.23 sec*proc (1 test)
+lint_cmake    =   0.12 sec*proc (1 test)
+linter        =   1.38 sec*proc (6 tests)
+pep257        =   0.16 sec*proc (1 test)
+uncrustify    =   0.15 sec*proc (1 test)
+xmllint       =   0.56 sec*proc (1 test)
+
+Total Test time (real) =   1.38 sec
+
+The following tests FAILED:
+	[0;31m  2 - flake8 (Failed)[0;0m
+	[0;31m  4 - pep257 (Failed)[0;0m
+	[0;31m  5 - uncrustify (Failed)[0;0m

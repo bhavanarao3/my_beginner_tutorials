@@ -31,22 +31,25 @@ using std::placeholders::_1;
  * (DEBUG, WARN, ERROR, or FATAL), the corresponding log level is used to print
  * the message, otherwise, it defaults to INFO.
  */
-class MinimalSubscriber : public rclcpp::Node {
- public:
+class MinimalSubscriber : public rclcpp::Node
+{
+public:
   /**
    * @brief Constructor for MinimalSubscriber class.
    *
    * Initializes the subscriber to "custom_topic" and sets up the callback to
    * handle received messages.
    */
-  MinimalSubscriber() : Node("minimal_subscriber") {
+  MinimalSubscriber()
+  : Node("minimal_subscriber")
+  {
     // Initialize subscription to "custom_topic" with a queue size of 10.
     subscription_ = this->create_subscription<std_msgs::msg::String>(
-        "custom_topic", 10,
-        std::bind(&MinimalSubscriber::TopicCallback, this, _1));
+      "custom_topic", 10,
+      std::bind(&MinimalSubscriber::TopicCallback, this, _1));
   }
 
- private:
+private:
   /**
    * @brief Callback function that processes the received message.
    *
@@ -56,36 +59,39 @@ class MinimalSubscriber : public rclcpp::Node {
    *
    * @param msg The received message.
    */
-  void TopicCallback(const std_msgs::msg::String &msg) const {
+  void TopicCallback(const std_msgs::msg::String & msg) const
+  {
     std::string received_message = msg.data;
-    RCLCPP_INFO_STREAM(this->get_logger(),
-                       "Received: '" << received_message << "'");
+    RCLCPP_INFO_STREAM(
+      this->get_logger(),
+      "Received: '" << received_message << "'");
 
     // Use DEBUG level if message contains "DEBUG"
     if (received_message.find("DEBUG") != std::string::npos) {
       RCLCPP_DEBUG_STREAM(
-          this->get_logger(),
-          "Debug level message detected in: '" << received_message << "'");
+        this->get_logger(),
+        "Debug level message detected in: '" << received_message << "'");
     } else if (received_message.find("WARN") != std::string::npos) {
       RCLCPP_WARN_STREAM(
-          this->get_logger(),
-          "Warning level message detected in: '" << received_message << "'");
+        this->get_logger(),
+        "Warning level message detected in: '" << received_message << "'");
     } else if (received_message.find("ERROR") != std::string::npos) {
       RCLCPP_ERROR_STREAM(
-          this->get_logger(),
-          "Error level message detected in: '" << received_message << "'");
+        this->get_logger(),
+        "Error level message detected in: '" << received_message << "'");
     } else if (received_message.find("FATAL") != std::string::npos) {
       RCLCPP_FATAL_STREAM(
-          this->get_logger(),
-          "Fatal level message detected in: '" << received_message << "'");
+        this->get_logger(),
+        "Fatal level message detected in: '" << received_message << "'");
     } else {
-      RCLCPP_INFO_STREAM(this->get_logger(), "General message received: '"
-                                                 << received_message << "'");
+      RCLCPP_INFO_STREAM(
+        this->get_logger(), "General message received: '"
+          << received_message << "'");
     }
   }
 
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr
-      subscription_;  ///< Subscription handle to receive messages.
+    subscription_;    ///< Subscription handle to receive messages.
 };
 
 /**
@@ -98,7 +104,8 @@ class MinimalSubscriber : public rclcpp::Node {
  * @param argv Array of arguments passed to the program.
  * @return int Exit status of the program.
  */
-int main(int argc, char *argv[]) {
+int main(int argc, char * argv[])
+{
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<MinimalSubscriber>());
   rclcpp::shutdown();
