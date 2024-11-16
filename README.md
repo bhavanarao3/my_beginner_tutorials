@@ -247,10 +247,15 @@ This will generate a PDF file that shows the TF frame tree. The file will be sav
 4. Record the Talker Node with ros_bag_launch.py
 You can record the running Talker node using ros_bag_launch.py. This will create a bag file that contains all the messages published by the Talker node.
 
-To record:
+To launch with recording enabled:
 
 ```bash
-ros2 launch beginner_tutorials ros_bag_launch.py
+ros2 launch beginner_tutorials ros_bag_launch.py record:=true
+```
+
+To launch without recording:
+```bash
+ros2 launch beginner_tutorials ros_bag_launch.py record:=false
 ```
 
 5. Playback the Bag and Run the Listener Node
@@ -276,4 +281,21 @@ results/Assignment3
     ├── ros2_bag # Folder
     ├── cpp_3.jpg #Cpplint result
     ├── clang_3.jpg #Clangtidy result
+```
+
+6. Run tests with colcon test
+To ensure that everything is working as expected, you can run tests with colcon.
+
+First, build the package:
+```bash
+colcon build --packages-select beginner_tutorials
+```
+
+Run the test:
+```bash
+colcon test --packages-select beginner_tutorials
+```
+Check the log:
+```bash
+cat log/latest_test/beginner_tutorials/stdout_stderr.log
 ```
