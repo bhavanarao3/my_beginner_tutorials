@@ -7,11 +7,11 @@ from pathlib import Path
 
 def generate_launch_description():
     """
-    @brief Launches ROS 2 bag recording with configurable enable/disable option.
+    @brief Launches ROS 2 bag recording with configurable enable/disable option and runs the Talker node.
 
-    This function sets up a ROS 2 launch description to record all topics for approximately 15 seconds.
-    The bag recording is saved to a unique directory based on the current timestamp. The recording can
-    be enabled or disabled via a launch argument.
+    This function sets up a ROS 2 launch description to record all topics, including the Talker node's topics,
+    for approximately 15 seconds. The bag recording is saved to a unique directory based on the current timestamp.
+    The recording can be enabled or disabled via a launch argument.
 
     @details
     - A launch argument 'record_bag' allows the user to enable or disable bag recording.
@@ -43,6 +43,12 @@ def generate_launch_description():
         description='Enable or disable ROS 2 bag recording'
     )
 
+    # Command to run the Talker node
+    talker_cmd = ExecuteProcess(
+        cmd=['ros2', 'run', 'beginner_tutorials', 'talker'],
+        output='screen'
+    )
+
     # Command to record all topics using ros2 bag
     bag_record_cmd = ExecuteProcess(
         cmd=[
@@ -66,6 +72,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         enable_bag_recording,
+        talker_cmd,  # Run the talker node
         bag_record_cmd,
         stop_bag_record_cmd
     ])
