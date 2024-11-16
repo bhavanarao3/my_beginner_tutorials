@@ -12,95 +12,103 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <functional>
-#include <memory>
-#include <string>
+#include <tf2/convert.h>
+#include <tf2/exceptions.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_ros/transform_listener.h>
 
-#include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
-
-using std::placeholders::_1;
+#include <chrono>
+#include <memory>  // For std::shared_ptr
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <rclcpp/rclcpp.hpp>
 
 /**
- * @brief MinimalSubscriber class subscribes to the "custom_topic" topic to
- * receive time-based messages.
+ * @brief A ROS2 node that listens to a transform between the "world" and "talk"
+ * frames.
  *
- * This node subscribes to the "custom_topic" and listens for messages of type
- * std_msgs::msg::String. Depending on the content of the message, different log
- * levels are used to log the message. If the message contains certain keywords
- * (DEBUG, WARN, ERROR, or FATAL), the corresponding log level is used to print
- * the message, otherwise, it defaults to INFO.
+ * This node subscribes to the transform between the "world" frame and the
+ * "talk" frame, retrieves the transform, and logs the translation and rotation
+ * data.
  */
-class MinimalSubscriber : public rclcpp::Node {
- public:
+class Listener : public rclcpp::Node
+{
+public:
   /**
-   * @brief Constructor for MinimalSubscriber class.
-   *
-   * Initializes the subscriber to "custom_topic" and sets up the callback to
-   * handle received messages.
+   * @brief Constructor for Listener class, initializes the transform listener
+   *        and sets up a timer to periodically check for transforms.
    */
-  MinimalSubscriber() : Node("minimal_subscriber") {
-    // Initialize subscription to "custom_topic" with a queue size of 10.
-    subscription_ = this->create_subscription<std_msgs::msg::String>(
-        "custom_topic", 10,
-        std::bind(&MinimalSubscriber::TopicCallback, this, _1));
+  Listener()
+  : Node("listener")
+  {
+    // Initialize the transform buffer and listener
+    tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+    tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+
+    // Create a timer to check for transform every second
+    timer_ = this->create_wall_timer(
+      std::chrono::seconds(1), std::bind(&Listener::lookup_transform, this));
   }
 
- private:
+private:
   /**
-   * @brief Callback function that processes the received message.
+   * @brief Look up the transform from "world" to "talk" frame and logs
+   * translation and rotation.
    *
-   * Logs the received message based on the content. If specific keywords such
-   * as "DEBUG", "WARN", "ERROR", or "FATAL" are found in the message, the
-   * corresponding log level is used.
-   *
-   * @param msg The received message.
+   * This function retrieves the transform and logs the position and orientation
+   * of the "talk" frame relative to the "world" frame.
    */
-  void TopicCallback(const std_msgs::msg::String &msg) const {
-    std::string received_message = msg.data;
-    RCLCPP_INFO_STREAM(this->get_logger(),
-                       "Received: '" << received_message << "'");
+  void lookup_transform()
+  {
+    geometry_msgs::msg::TransformStamped transformStamped;
 
-    // Use DEBUG level if message contains "DEBUG"
-    if (received_message.find("DEBUG") != std::string::npos) {
-      RCLCPP_DEBUG_STREAM(
-          this->get_logger(),
-          "Debug level message detected in: '" << received_message << "'");
-    } else if (received_message.find("WARN") != std::string::npos) {
-      RCLCPP_WARN_STREAM(
-          this->get_logger(),
-          "Warning level message detected in: '" << received_message << "'");
-    } else if (received_message.find("ERROR") != std::string::npos) {
-      RCLCPP_ERROR_STREAM(
-          this->get_logger(),
-          "Error level message detected in: '" << received_message << "'");
-    } else if (received_message.find("FATAL") != std::string::npos) {
-      RCLCPP_FATAL_STREAM(
-          this->get_logger(),
-          "Fatal level message detected in: '" << received_message << "'");
-    } else {
-      RCLCPP_INFO_STREAM(this->get_logger(), "General message received: '"
-                                                 << received_message << "'");
+    try {
+      // Look up the transform from "world" frame to "talk" frame
+      transformStamped =
+        tf_buffer_->lookupTransform("world", "talk", tf2::TimePointZero);
+
+      // Log translation and rotation data
+      RCLCPP_INFO(
+        this->get_logger(), "Translation: x=%f, y=%f, z=%f",
+        transformStamped.transform.translation.x,
+        transformStamped.transform.translation.y,
+        transformStamped.transform.translation.z);
+
+      RCLCPP_INFO(
+        this->get_logger(), "Rotation: x=%f, y=%f, z=%f, w=%f",
+        transformStamped.transform.rotation.x,
+        transformStamped.transform.rotation.y,
+        transformStamped.transform.rotation.z,
+        transformStamped.transform.rotation.w);
+    } catch (const tf2::TransformException & ex) {
+      // If transform is not available, log the error
+      RCLCPP_ERROR(
+        this->get_logger(), "Could not get transform: %s",
+        ex.what());
     }
   }
 
-  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr
-      subscription_;  ///< Subscription handle to receive messages.
+  rclcpp::TimerBase::SharedPtr
+    timer_;    ///< Timer for periodically checking for transform
+  std::shared_ptr<tf2_ros::TransformListener>
+  tf_listener_;                                 ///< Transform listener
+  std::unique_ptr<tf2_ros::Buffer> tf_buffer_;  ///< Transform buffer
 };
 
 /**
- * @brief Main function to initialize and run the MinimalSubscriber node.
+ * @brief Main entry point for the ROS2 program.
  *
- * Initializes the ROS2 client library, creates a MinimalSubscriber node,
- * and enters the spinning loop to keep the node alive.
+ * Initializes the ROS2 client library, starts the Listener node, and handles
+ * shutdown.
  *
- * @param argc Number of arguments passed to the program.
- * @param argv Array of arguments passed to the program.
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line arguments.
  * @return int Exit status of the program.
  */
-int main(int argc, char *argv[]) {
-  rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<MinimalSubscriber>());
-  rclcpp::shutdown();
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);  ///< Initialize ROS2 client library
+  rclcpp::spin(std::make_shared<Listener>());  ///< Spin the Listener node to
+                                               ///< process callbacks
+  rclcpp::shutdown();                          ///< Shutdown ROS2 client library
   return 0;
 }
