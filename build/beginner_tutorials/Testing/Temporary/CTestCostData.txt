@@ -1,7 +1,0 @@
-cppcheck 4 0.0299924
-flake8 1 0.193218
-lint_cmake 4 0.0251286
-pep257 1 0.135396
-uncrustify 3 0.0390874
-xmllint 4 0.111846
----

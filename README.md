@@ -208,3 +208,72 @@ The launch file (`minimal_pubsub_launch.py`) allows for an organized way to star
    ```bash
    ros2 launch beginner_tutorials minimal_pubsub_launch.py publish_frequency:=500 frequency_threshold:=200 log_level:=1
    ```
+
+## Programming Assignment 3
+
+### ROS2 Talker Node and TF Integration
+
+This project demonstrates the use of a ROS2 Talker node that publishes a TF frame, allowing the listener node to receive and process the transform data. It also includes instructions for running the Talker and Listener nodes, as well as recording and playing back ROS2 bags.
+
+#### Steps
+
+1. Modify the Talker Node to Publish a TF Frame
+The Talker node has been modified to publish a TF frame. This frame can be visualized and used for further processing.
+
+To run the modified Talker node:
+
+```bash
+ros2 run beginner_tutorials talker
+```
+
+2. Check TF Frames with tf2_echo
+Once the Talker node is running and publishing the TF frame, you can use the tf2_echo command to listen to the transform.
+
+To view the transform:
+
+```bash
+ros2 run tf2_ros tf2_echo <frame_from> <frame_to>
+ros2 run tf2_ros tf2_echo world talk
+```
+
+3. View Frames with view_frames
+To visualize the frames in a graph, you can use the view_frames tool:
+
+```bash
+ros2 run tf2_tools view_frames
+```
+This will generate a PDF file that shows the TF frame tree. The file will be saved in the results/Assignment3 directory.
+
+4. Record the Talker Node with ros_bag_launch.py
+You can record the running Talker node using ros_bag_launch.py. This will create a bag file that contains all the messages published by the Talker node.
+
+To record:
+
+```bash
+ros2 launch beginner_tutorials ros_bag_launch.py
+```
+
+5. Playback the Bag and Run the Listener Node
+After recording the bag, use ros2 bag play to play back the recorded messages. You can then run the Listener node to verify if it properly receives the transform data.
+
+To play back the bag file:
+
+```bash
+ros2 bag play <path_to_your_bag_file>
+```
+
+And run the Listener node:
+
+```bash
+ros2 run beginner_tutorials listener
+```
+This will verify that the listener is correctly receiving and processing the transform data from the Talker node.
+
+Directory Structure
+```bash
+results/Assignment3
+    ├── frames.pdf  # Visualized frames from tf2_tools
+    ├── ros2_bag # Folder
+    ├── cpp_3.jpg #Cpplint result
+    ├── clang_3.jpg #Clangtidy result
+```

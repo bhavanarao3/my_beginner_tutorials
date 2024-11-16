@@ -17,6 +17,7 @@ find_package(example_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
 
 # Add include directories for standard system headers if needed
@@ -27,8 +28,8 @@ add_executable(talker src/publisher_member_function.cpp)
 add_executable(listener src/subscriber_member_function.cpp)
 add_executable(test_talker test/test_talker.cpp)
 
-ament_target_dependencies(talker rclcpp std_msgs example_interfaces geometry_msgs rclcpp tf2 tf2_ros)
-ament_target_dependencies(listener rclcpp std_msgs example_interfaces geometry_msgs rclcpp tf2 tf2_ros)
+ament_target_dependencies(talker rclcpp std_msgs example_interfaces geometry_msgs tf2 tf2_ros)
+ament_target_dependencies(listener rclcpp std_msgs example_interfaces geometry_msgs tf2 tf2_ros tf2_geometry_msgs)
 ament_target_dependencies(test_talker rclcpp std_msgs tf2_ros)
 
 install(TARGETS
@@ -55,3 +56,4 @@ if(BUILD_TESTING)
 endif()
 
 ament_package()
+
