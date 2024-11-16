@@ -1,0 +1,10 @@
+-- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':
+ - /opt/ros/humble/bin/ament_pep257 --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml
+
+checking ./launch/minimal_pubsub_launch.py
+checking ./launch/ros_bag_launch.py
+No problems found
+
+
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml'

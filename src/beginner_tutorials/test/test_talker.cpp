@@ -31,10 +31,10 @@ TEST_CASE("Talker node integration test", "[talker]") {
   SECTION("Publisher Test") {
     // Create a subscription to the "/chatter" topic
     auto subscription = node->create_subscription<std_msgs::msg::String>(
-        "/chatter", 10, [&](std_msgs::msg::String::SharedPtr msg) {
-          // Check if the message data contains "Current time"
-          REQUIRE(msg->data.find("Current time") != std::string::npos);
-        });
+      "/chatter", 10, [&](std_msgs::msg::String::SharedPtr msg) {
+        // Check if the message data contains "Current time"
+        REQUIRE(msg->data.find("Current time") != std::string::npos);
+      });
 
     // Spin the node for a short period to allow message to be received
     rclcpp::spin_some(node);
@@ -58,7 +58,7 @@ TEST_CASE("Talker node integration test", "[talker]") {
     try {
       // Look up the transform from "world" to "talk"
       auto transform = tf_buffer.lookupTransform(
-          "world", "talk", tf2::TimePointZero, tf2::Duration(1));
+        "world", "talk", tf2::TimePointZero, tf2::Duration(1));
       transform_received = true;
 
       // Check the translation values
@@ -69,11 +69,13 @@ TEST_CASE("Talker node integration test", "[talker]") {
       // Check the rotation values (set as 45 degrees around Z axis)
       REQUIRE(transform.transform.rotation.x == Approx(0.0).epsilon(0.01));
       REQUIRE(transform.transform.rotation.y == Approx(0.0).epsilon(0.01));
-      REQUIRE(transform.transform.rotation.z ==
-              Approx(0.7071).epsilon(0.01));  // sin(45 degrees) = 0.7071
-      REQUIRE(transform.transform.rotation.w ==
-              Approx(0.7071).epsilon(0.01));  // cos(45 degrees) = 0.7071
-    } catch (tf2::TransformException& ex) {
+      REQUIRE(
+        transform.transform.rotation.z ==
+        Approx(0.7071).epsilon(0.01));        // sin(45 degrees) = 0.7071
+      REQUIRE(
+        transform.transform.rotation.w ==
+        Approx(0.7071).epsilon(0.01));        // cos(45 degrees) = 0.7071
+    } catch (tf2::TransformException & ex) {
       // If transform is not found, fail the test
       FAIL("Transform not found: " << ex.what());
     }

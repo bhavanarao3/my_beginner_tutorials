@@ -1,36 +1,45 @@
 import time
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction, LogInfo
+from launch.actions import (
+    DeclareLaunchArgument, ExecuteProcess, TimerAction, LogInfo
+)
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition
 from pathlib import Path
 
+
 def generate_launch_description():
     """
-    @brief Launches ROS 2 bag recording with configurable enable/disable option and runs the Talker node.
+    Launch a ROS 2 bag recording with configurable enable/disable option and
+    run the Talker node.
 
-    This function sets up a ROS 2 launch description to record all topics, including the Talker node's topics,
-    for approximately 15 seconds. The bag recording is saved to a unique directory based on the current timestamp.
-    The recording can be enabled or disabled via a launch argument.
+    This function sets up a ROS 2 launch description to record all topics,
+    including the Talker node's topics, for approximately 15 seconds. The
+    bag recording is saved to a unique directory based on the current
+    timestamp. The recording can be enabled or disabled via a launch argument.
 
-    @details
-    - A launch argument 'record_bag' allows the user to enable or disable bag recording.
-    - The ROS 2 bag is saved in a directory named 'ros2_bag_<timestamp>'.
-    - After ~15 seconds, the recording process is stopped automatically.
+    Launch Arguments:
+        record_bag (bool): Enables or disables ROS 2 bag recording. Default is
+        'true'.
 
-    @return LaunchDescription
-        A LaunchDescription object that defines the launch configuration for recording a ROS 2 bag.
+    Processes:
+        - The ROS 2 bag is saved in a directory named 'ros2_bag_<timestamp>' for
+        each recording session.
+        - After ~15 seconds, the recording process is stopped automatically.
 
-    @note
-    - The default behavior is to enable bag recording (`record_bag=true`).
-    - The ROS 2 bag is recorded for approximately 15 seconds, and then the process is terminated.
+    Returns:
+        LaunchDescription: A LaunchDescription object that defines the launch
+                           configuration for recording a ROS 2 bag.
 
-    @example
-    To launch the ROS 2 bag recording with custom configuration:
-    ```
-    ros2 launch beginner_tutorials ros2_bag_recording_launch.py record_bag:=false
-    ```
+    Example:
+        To launch the ROS 2 bag recording with custom configuration:
+        ```
+        ros2 launch beginner_tutorials ros2_bag_recording_launch.py
+        record_bag:=false
+        ```
+
     """
+
     # Define the base output bag directory
     results_dir = Path("/home/bhavana/my_beginner_tutorials/result/Assignment3")
     timestamp = time.strftime("%Y%m%d_%H%M%S")
@@ -52,7 +61,8 @@ def generate_launch_description():
     # Command to record all topics using ros2 bag
     bag_record_cmd = ExecuteProcess(
         cmd=[
-            'ros2', 'bag', 'record', '-a', '--output', str(bag_dir)
+            'ros2', 'bag', 'record', '-a',
+            '--output', str(bag_dir)
         ],
         condition=IfCondition(LaunchConfiguration('record_bag')),
         output='screen'

@@ -1,0 +1,128 @@
+[0.000000] (-) TimerEvent: {}
+[0.000420] (beginner_tutorials) JobQueued: {'identifier': 'beginner_tutorials', 'dependencies': OrderedDict([('beginner_tutorials', '/home/bhavana/my_beginner_tutorials/install/beginner_tutorials')])}
+[0.001000] (beginner_tutorials) JobStarted: {'identifier': 'beginner_tutorials'}
+[0.021022] (beginner_tutorials) Command: {'cmd': ['/usr/bin/ctest', '-C', 'Release', '-D', 'ExperimentalTest', '--no-compress-output', '-V', '--force-new-ctest-process'], 'cwd': '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bhavana'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/bhavana'), ('OLDPWD', '/home/bhavana/my_beginner_tutorials/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1594'), ('SYSTEMD_EXEC_PID', '1919'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '13331'), ('_colcon_cd_root', '/home/bhavana/dev_ws'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/bhavana/my_beginner_tutorials/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'bhavana'), ('JOURNAL_STREAM', '8:26386'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bhavana'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', ':/home/bhavana/dev_ws/src/basic_mobile_robot/models/'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('PATH', '/opt/ros/humble/bin:/home/bhavana/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/bhavana-virtual-machine:@/tmp/.ICE-unix/1745,unix/bhavana-virtual-machine:/tmp/.ICE-unix/1745'), ('INVOCATION_ID', 'efa497c42652486fb5741281a66634de'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.NF0AX2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/bhavana/my_beginner_tutorials/install/integration_test:/home/bhavana/my_beginner_tutorials/install/beginner_tutorials:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:166b13ad-57ab-4280-94b5-748a6c25e757'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/bhavana/my_beginner_tutorials/install/beginner_tutorials:/home/bhavana/my_beginner_tutorials/install/integration_test')]), 'shell': False}
+[0.029858] (beginner_tutorials) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini\n'}
+[0.030035] (beginner_tutorials) StdoutLine: {'line': b'Parse Config file:/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini\n'}
+[0.030118] (beginner_tutorials) StdoutLine: {'line': b'   Site: bhavana-virtual-machine\n'}
+[0.030160] (beginner_tutorials) StdoutLine: {'line': b'   Build name: (empty)\n'}
+[0.030198] (beginner_tutorials) StdoutLine: {'line': b' Add coverage exclude regular expressions.\n'}
+[0.030275] (beginner_tutorials) StdoutLine: {'line': b'Create new tag: 20241116-0039 - Experimental\n'}
+[0.030335] (beginner_tutorials) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini\n'}
+[0.030387] (beginner_tutorials) StdoutLine: {'line': b'Parse Config file:/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/CTestConfiguration.ini\n'}
+[0.030423] (beginner_tutorials) StdoutLine: {'line': b'Test project /home/bhavana/my_beginner_tutorials/build/beginner_tutorials\n'}
+[0.030458] (beginner_tutorials) StdoutLine: {'line': b'Constructing a list of tests\n'}
+[0.030788] (beginner_tutorials) StdoutLine: {'line': b'Done constructing a list of tests\n'}
+[0.030888] (beginner_tutorials) StdoutLine: {'line': b'Updating test list for fixtures\n'}
+[0.030929] (beginner_tutorials) StdoutLine: {'line': b'Added 0 tests to meet fixture requirements\n'}
+[0.030996] (beginner_tutorials) StdoutLine: {'line': b'Checking test dependency graph...\n'}
+[0.031036] (beginner_tutorials) StdoutLine: {'line': b'Checking test dependency graph end\n'}
+[0.031083] (beginner_tutorials) StdoutLine: {'line': b'test 1\n'}
+[0.031121] (beginner_tutorials) StdoutLine: {'line': b'    Start 1: cppcheck\n'}
+[0.031156] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.031194] (beginner_tutorials) StdoutLine: {'line': b'1: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_cppcheck/cppcheck.txt" "--command" "/opt/ros/humble/bin/ament_cppcheck" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml"\n'}
+[0.031232] (beginner_tutorials) StdoutLine: {'line': b'1: Test timeout computed to be: 300\n'}
+[0.073683] (beginner_tutorials) StdoutLine: {'line': b"1: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.073912] (beginner_tutorials) StdoutLine: {'line': b'1:  - /opt/ros/humble/bin/ament_cppcheck --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml\n'}
+[0.099399] (-) TimerEvent: {}
+[0.127742] (beginner_tutorials) StdoutLine: {'line': b'1: cppcheck 2.7 has known performance issues and therefore will not be used, set the AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS environment variable to override this.\n'}
+[0.135195] (beginner_tutorials) StdoutLine: {'line': b'1: -- run_test.py: return code 0\n'}
+[0.135398] (beginner_tutorials) StdoutLine: {'line': b"1: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/cppcheck.xunit.xml'\n"}
+[0.143325] (beginner_tutorials) StdoutLine: {'line': b'1/6 Test #1: cppcheck .........................   Passed    0.11 sec\n'}
+[0.143494] (beginner_tutorials) StdoutLine: {'line': b'test 2\n'}
+[0.143536] (beginner_tutorials) StdoutLine: {'line': b'    Start 2: flake8\n'}
+[0.143573] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.143608] (beginner_tutorials) StdoutLine: {'line': b'2: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_flake8/flake8.txt" "--command" "/opt/ros/humble/bin/ament_flake8" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml"\n'}
+[0.143647] (beginner_tutorials) StdoutLine: {'line': b'2: Test timeout computed to be: 60\n'}
+[0.182911] (beginner_tutorials) StdoutLine: {'line': b"2: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.183060] (beginner_tutorials) StdoutLine: {'line': b'2:  - /opt/ros/humble/bin/ament_flake8 --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml\n'}
+[0.199493] (-) TimerEvent: {}
+[0.299794] (-) TimerEvent: {}
+[0.305664] (beginner_tutorials) StdoutLine: {'line': b'2: \n'}
+[0.305855] (beginner_tutorials) StdoutLine: {'line': b'2: 2 files checked\n'}
+[0.305901] (beginner_tutorials) StdoutLine: {'line': b'2: No problems found\n'}
+[0.305937] (beginner_tutorials) StdoutLine: {'line': b'2: \n'}
+[0.305974] (beginner_tutorials) StdoutLine: {'line': b'2: Checked files:\n'}
+[0.306008] (beginner_tutorials) StdoutLine: {'line': b'2: \n'}
+[0.306043] (beginner_tutorials) StdoutLine: {'line': b'2: * ./launch/ros_bag_launch.py\n'}
+[0.306108] (beginner_tutorials) StdoutLine: {'line': b'2: * ./launch/minimal_pubsub_launch.py\n'}
+[0.320166] (beginner_tutorials) StdoutLine: {'line': b'2: -- run_test.py: return code 0\n'}
+[0.320552] (beginner_tutorials) StdoutLine: {'line': b"2: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/flake8.xunit.xml'\n"}
+[0.326587] (beginner_tutorials) StdoutLine: {'line': b'2/6 Test #2: flake8 ...........................   Passed    0.18 sec\n'}
+[0.326751] (beginner_tutorials) StdoutLine: {'line': b'test 3\n'}
+[0.326796] (beginner_tutorials) StdoutLine: {'line': b'    Start 3: lint_cmake\n'}
+[0.326833] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.326871] (beginner_tutorials) StdoutLine: {'line': b'3: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_lint_cmake/lint_cmake.txt" "--command" "/opt/ros/humble/bin/ament_lint_cmake" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml"\n'}
+[0.327419] (beginner_tutorials) StdoutLine: {'line': b'3: Test timeout computed to be: 60\n'}
+[0.368258] (beginner_tutorials) StdoutLine: {'line': b"3: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.368622] (beginner_tutorials) StdoutLine: {'line': b'3:  - /opt/ros/humble/bin/ament_lint_cmake --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml\n'}
+[0.399947] (-) TimerEvent: {}
+[0.415101] (beginner_tutorials) StdoutLine: {'line': b'3: \n'}
+[0.415309] (beginner_tutorials) StdoutLine: {'line': b'3: No problems found\n'}
+[0.420987] (beginner_tutorials) StdoutLine: {'line': b'3: -- run_test.py: return code 0\n'}
+[0.421280] (beginner_tutorials) StdoutLine: {'line': b"3: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/lint_cmake.xunit.xml'\n"}
+[0.426880] (beginner_tutorials) StdoutLine: {'line': b'3/6 Test #3: lint_cmake .......................   Passed    0.10 sec\n'}
+[0.427608] (beginner_tutorials) StdoutLine: {'line': b'test 4\n'}
+[0.428017] (beginner_tutorials) StdoutLine: {'line': b'    Start 4: pep257\n'}
+[0.428098] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.428143] (beginner_tutorials) StdoutLine: {'line': b'4: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_pep257/pep257.txt" "--command" "/opt/ros/humble/bin/ament_pep257" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml"\n'}
+[0.428189] (beginner_tutorials) StdoutLine: {'line': b'4: Test timeout computed to be: 60\n'}
+[0.468694] (beginner_tutorials) StdoutLine: {'line': b"4: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.469045] (beginner_tutorials) StdoutLine: {'line': b'4:  - /opt/ros/humble/bin/ament_pep257 --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml\n'}
+[0.500095] (-) TimerEvent: {}
+[0.547314] (beginner_tutorials) StdoutLine: {'line': b'4: checking ./launch/minimal_pubsub_launch.py\n'}
+[0.547485] (beginner_tutorials) StdoutLine: {'line': b'4: checking ./launch/ros_bag_launch.py\n'}
+[0.547527] (beginner_tutorials) StdoutLine: {'line': b'4: No problems found\n'}
+[0.560227] (beginner_tutorials) StdoutLine: {'line': b'4: -- run_test.py: return code 0\n'}
+[0.560546] (beginner_tutorials) StdoutLine: {'line': b"4: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/pep257.xunit.xml'\n"}
+[0.567494] (beginner_tutorials) StdoutLine: {'line': b'4/6 Test #4: pep257 ...........................   Passed    0.14 sec\n'}
+[0.567839] (beginner_tutorials) StdoutLine: {'line': b'test 5\n'}
+[0.567893] (beginner_tutorials) StdoutLine: {'line': b'    Start 5: uncrustify\n'}
+[0.567934] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.567975] (beginner_tutorials) StdoutLine: {'line': b'5: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_uncrustify/uncrustify.txt" "--command" "/opt/ros/humble/bin/ament_uncrustify" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml"\n'}
+[0.568022] (beginner_tutorials) StdoutLine: {'line': b'5: Test timeout computed to be: 60\n'}
+[0.600322] (-) TimerEvent: {}
+[0.612676] (beginner_tutorials) StdoutLine: {'line': b"5: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.613100] (beginner_tutorials) StdoutLine: {'line': b'5:  - /opt/ros/humble/bin/ament_uncrustify --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml\n'}
+[0.672837] (beginner_tutorials) StdoutLine: {'line': b"5: No code style divergence in file 'src/publisher_member_function.cpp'\n"}
+[0.673236] (beginner_tutorials) StdoutLine: {'line': b'5: \n'}
+[0.673373] (beginner_tutorials) StdoutLine: {'line': b"5: No code style divergence in file 'src/subscriber_member_function.cpp'\n"}
+[0.673413] (beginner_tutorials) StdoutLine: {'line': b'5: \n'}
+[0.673450] (beginner_tutorials) StdoutLine: {'line': b"5: No code style divergence in file 'test/test_talker.cpp'\n"}
+[0.673487] (beginner_tutorials) StdoutLine: {'line': b'5: \n'}
+[0.673522] (beginner_tutorials) StdoutLine: {'line': b'5: No problems found\n'}
+[0.680837] (beginner_tutorials) StdoutLine: {'line': b'5: -- run_test.py: return code 0\n'}
+[0.681009] (beginner_tutorials) StdoutLine: {'line': b"5: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/uncrustify.xunit.xml'\n"}
+[0.687531] (beginner_tutorials) StdoutLine: {'line': b'5/6 Test #5: uncrustify .......................   Passed    0.12 sec\n'}
+[0.688212] (beginner_tutorials) StdoutLine: {'line': b'test 6\n'}
+[0.688319] (beginner_tutorials) StdoutLine: {'line': b'    Start 6: xmllint\n'}
+[0.688362] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.688453] (beginner_tutorials) StdoutLine: {'line': b'6: Test command: /usr/bin/python3 "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml" "--package-name" "beginner_tutorials" "--output-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/ament_xmllint/xmllint.txt" "--command" "/opt/ros/humble/bin/ament_xmllint" "--xunit-file" "/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml"\n'}
+[0.688495] (beginner_tutorials) StdoutLine: {'line': b'6: Test timeout computed to be: 60\n'}
+[0.700409] (-) TimerEvent: {}
+[0.731904] (beginner_tutorials) StdoutLine: {'line': b"6: -- run_test.py: invoking following command in '/home/bhavana/my_beginner_tutorials/src/beginner_tutorials':\n"}
+[0.732105] (beginner_tutorials) StdoutLine: {'line': b'6:  - /opt/ros/humble/bin/ament_xmllint --xunit-file /home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml\n'}
+[0.800589] (-) TimerEvent: {}
+[0.901007] (-) TimerEvent: {}
+[0.968869] (beginner_tutorials) StdoutLine: {'line': b"6: File 'package.xml' is valid\n"}
+[0.969215] (beginner_tutorials) StdoutLine: {'line': b'6: \n'}
+[0.969304] (beginner_tutorials) StdoutLine: {'line': b'6: No problems found\n'}
+[0.979938] (beginner_tutorials) StdoutLine: {'line': b'6: -- run_test.py: return code 0\n'}
+[0.980147] (beginner_tutorials) StdoutLine: {'line': b"6: -- run_test.py: verify result file '/home/bhavana/my_beginner_tutorials/build/beginner_tutorials/test_results/beginner_tutorials/xmllint.xunit.xml'\n"}
+[0.987342] (beginner_tutorials) StdoutLine: {'line': b'6/6 Test #6: xmllint ..........................   Passed    0.30 sec\n'}
+[0.987618] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.987657] (beginner_tutorials) StdoutLine: {'line': b'\x1b[0;32m100% tests passed\x1b[0;0m, 0 tests failed\x1b[0;0m out of 6\n'}
+[0.987692] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.987728] (beginner_tutorials) StdoutLine: {'line': b'Label Time Summary:\n'}
+[0.987760] (beginner_tutorials) StdoutLine: {'line': b'cppcheck      =   0.11 sec*proc (1 test)\n'}
+[0.987794] (beginner_tutorials) StdoutLine: {'line': b'flake8        =   0.18 sec*proc (1 test)\n'}
+[0.987827] (beginner_tutorials) StdoutLine: {'line': b'lint_cmake    =   0.10 sec*proc (1 test)\n'}
+[0.987860] (beginner_tutorials) StdoutLine: {'line': b'linter        =   0.95 sec*proc (6 tests)\n'}
+[0.987901] (beginner_tutorials) StdoutLine: {'line': b'pep257        =   0.14 sec*proc (1 test)\n'}
+[0.987933] (beginner_tutorials) StdoutLine: {'line': b'uncrustify    =   0.12 sec*proc (1 test)\n'}
+[0.987965] (beginner_tutorials) StdoutLine: {'line': b'xmllint       =   0.30 sec*proc (1 test)\n'}
+[0.987996] (beginner_tutorials) StdoutLine: {'line': b'\n'}
+[0.988031] (beginner_tutorials) StdoutLine: {'line': b'Total Test time (real) =   0.96 sec\n'}
+[0.990884] (beginner_tutorials) CommandEnded: {'returncode': 0}
+[0.991638] (beginner_tutorials) JobEnded: {'identifier': 'beginner_tutorials', 'rc': 0}
+[0.992209] (-) EventReactorShutdown: {}

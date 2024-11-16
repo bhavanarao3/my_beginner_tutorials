@@ -6,28 +6,36 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     """
-    @brief Generates a launch description for Talker and Listener nodes.
+    Generate a launch description for Talker and Listener nodes.
 
-    This function configures the ROS2 system by setting up the Talker and Listener nodes with configurable parameters. The Talker node publishes messages at a specified frequency, while the Listener node subscribes to the Talker node's messages and logs them at a configurable log level.
+    This function configures the ROS2 system by setting up the Talker and
+    Listener nodes with configurable parameters. The Talker node publishes
+    messages at a specified frequency, while the Listener node subscribes to
+    the Talker node's messages and logs them at a configurable log level.
 
-    @details
-    The launch description includes configurable parameters for:
-    - Log level for both the Talker and Listener nodes.
-    - Publish frequency for the Talker node to control the rate at which it sends messages.
+    Launch Arguments:
+        log_level_talker (str): Log level for the Talker node. Default is 'INFO'.
+        log_level_listener (str): Log level for the Listener node. Default is 'INFO'.
+        publish_frequency (float): Frequency (Hz) for the Talker node to publish
+                                    messages. Default is 1.0.
 
-    @return LaunchDescription
-        A LaunchDescription object that defines the launch configuration for the Talker and Listener nodes.
+    Processes:
+        - Talker node publishes messages at the specified frequency.
+        - Listener node subscribes and logs messages at the specified log level.
 
-    @note
-    - The default log level for both nodes is set to "INFO".
-    - The default publish frequency for the Talker node is set to 1.0 Hz.
+    Returns:
+        LaunchDescription: A LaunchDescription object that defines the launch
+                           configuration for Talker and Listener nodes.
 
-    @example
-    To launch the nodes with custom parameters:
-    ```
-    ros2 launch beginner_tutorials talker_listener_launch.py log_level_talker:=DEBUG log_level_listener:=DEBUG publish_frequency:=2.0
-    ```
+    Example:
+        To launch the nodes with custom parameters:
+        ```
+        ros2 launch beginner_tutorials talker_listener_launch.py
+        log_level_talker:=DEBUG log_level_listener:=DEBUG publish_frequency:=2.0
+        ```
+
     """
+
     # Declare launch arguments for configuration
     log_level_talker_arg = DeclareLaunchArgument(
         'log_level_talker',
@@ -70,7 +78,7 @@ def generate_launch_description():
         ]
     )
 
-    # Return the launch description
+    # Return the launch description with nodes and arguments
     return LaunchDescription([
         log_level_talker_arg,
         log_level_listener_arg,

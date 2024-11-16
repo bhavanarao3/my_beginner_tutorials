@@ -30,23 +30,26 @@
  * "talk" frame, retrieves the transform, and logs the translation and rotation
  * data.
  */
-class Listener : public rclcpp::Node {
- public:
+class Listener : public rclcpp::Node
+{
+public:
   /**
    * @brief Constructor for Listener class, initializes the transform listener
    *        and sets up a timer to periodically check for transforms.
    */
-  Listener() : Node("listener") {
+  Listener()
+  : Node("listener")
+  {
     // Initialize the transform buffer and listener
     tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
     // Create a timer to check for transform every second
     timer_ = this->create_wall_timer(
-        std::chrono::seconds(1), std::bind(&Listener::lookup_transform, this));
+      std::chrono::seconds(1), std::bind(&Listener::lookup_transform, this));
   }
 
- private:
+private:
   /**
    * @brief Look up the transform from "world" to "talk" frame and logs
    * translation and rotation.
@@ -54,36 +57,40 @@ class Listener : public rclcpp::Node {
    * This function retrieves the transform and logs the position and orientation
    * of the "talk" frame relative to the "world" frame.
    */
-  void lookup_transform() {
+  void lookup_transform()
+  {
     geometry_msgs::msg::TransformStamped transformStamped;
 
     try {
       // Look up the transform from "world" frame to "talk" frame
       transformStamped =
-          tf_buffer_->lookupTransform("world", "talk", tf2::TimePointZero);
+        tf_buffer_->lookupTransform("world", "talk", tf2::TimePointZero);
 
       // Log translation and rotation data
-      RCLCPP_INFO(this->get_logger(), "Translation: x=%f, y=%f, z=%f",
-                  transformStamped.transform.translation.x,
-                  transformStamped.transform.translation.y,
-                  transformStamped.transform.translation.z);
+      RCLCPP_INFO(
+        this->get_logger(), "Translation: x=%f, y=%f, z=%f",
+        transformStamped.transform.translation.x,
+        transformStamped.transform.translation.y,
+        transformStamped.transform.translation.z);
 
-      RCLCPP_INFO(this->get_logger(), "Rotation: x=%f, y=%f, z=%f, w=%f",
-                  transformStamped.transform.rotation.x,
-                  transformStamped.transform.rotation.y,
-                  transformStamped.transform.rotation.z,
-                  transformStamped.transform.rotation.w);
-    } catch (const tf2::TransformException& ex) {
+      RCLCPP_INFO(
+        this->get_logger(), "Rotation: x=%f, y=%f, z=%f, w=%f",
+        transformStamped.transform.rotation.x,
+        transformStamped.transform.rotation.y,
+        transformStamped.transform.rotation.z,
+        transformStamped.transform.rotation.w);
+    } catch (const tf2::TransformException & ex) {
       // If transform is not available, log the error
-      RCLCPP_ERROR(this->get_logger(), "Could not get transform: %s",
-                   ex.what());
+      RCLCPP_ERROR(
+        this->get_logger(), "Could not get transform: %s",
+        ex.what());
     }
   }
 
   rclcpp::TimerBase::SharedPtr
-      timer_;  ///< Timer for periodically checking for transform
+    timer_;    ///< Timer for periodically checking for transform
   std::shared_ptr<tf2_ros::TransformListener>
-      tf_listener_;                             ///< Transform listener
+  tf_listener_;                                 ///< Transform listener
   std::unique_ptr<tf2_ros::Buffer> tf_buffer_;  ///< Transform buffer
 };
 
@@ -97,7 +104,8 @@ class Listener : public rclcpp::Node {
  * @param argv Array of command-line arguments.
  * @return int Exit status of the program.
  */
-int main(int argc, char* argv[]) {
+int main(int argc, char * argv[])
+{
   rclcpp::init(argc, argv);  ///< Initialize ROS2 client library
   rclcpp::spin(std::make_shared<Listener>());  ///< Spin the Listener node to
                                                ///< process callbacks
